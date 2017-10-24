@@ -1,4 +1,5 @@
 from django.db import models
+from rest_framework import serializers
 
 class Actor(models.Model):
     name = models.CharField(max_length=200)
@@ -13,3 +14,13 @@ class Movie(models.Model):
 
     def __str__(self):
         return self.title
+
+class ActorSerializer(serializers.HyperlinkedModelSerializer):
+    class Meta:
+        model = Actor
+        fields = 'name',
+
+class MovieSerializer(serializers.HyperlinkedModelSerializer):
+    class Meta:
+        model = Movie
+        fields = 'title', 'genre', 'actors'
