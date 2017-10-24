@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import './App.css';
+import Modal from 'react-modal';
 
 const djangoServer = 'http://localhost:8000';
 const moviesUrl = djangoServer + '/movies/';
@@ -17,7 +18,7 @@ function Movie(props) {
 class App extends Component {
     constructor(props) {
         super(props);
-        this.state = {movies: [], filtered: []};
+        this.state = {movies: [], filtered: [], addMovieModalOpen: false};
     }
 
     componentDidMount() {
@@ -35,12 +36,20 @@ class App extends Component {
         } else {
             let filtered = []
             for (let movie of this.state.movies) {
-                if(movie.title.toLowerCase().includes(filter)){
+                if(movie.title.toLowerCase().includes(filter) || movie.genre.toLowerCase().includes(filter)){
                     filtered.push(movie);
                 }
             }
             this.setState({filtered: filtered})
         }
+    }
+
+    addMovieModalOpen(){
+        this.setState({addMovieModalOpen: true});
+    }
+
+    addMovieModalClose(){
+        this.setState({addMovieModalOpen: false});
     }
 
     render() {
@@ -64,7 +73,12 @@ class App extends Component {
                     </tr>
                     {movies}
                 </table>
-                <button>Add Actor</button> <button>Add Movie</button>
+                <button onClick={this.addMovieModalOpen.bind(this)}>Add Movie</button>
+                <Modal isOpen={this.state.addMovieModalOpen} onRequestClose={this.addMovieModalClose.bind(this)}>
+                    <h1>Add Movie</h1>
+                    <input type='text'/>
+                    <input type='submit' value='Submit'/>
+                </Modal>
             </div>
         );
     }
