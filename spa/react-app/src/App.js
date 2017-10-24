@@ -8,24 +8,30 @@ const moviesUrl = djangoServer + '/movies/';
 function Movie(props) {
     return(
         <tr>
-            <td>title</td>
-            <td>genre</td>
+            <td>{props.title}</td>
+            <td>{props.genre}</td>
         </tr>
     )
 }
 
 class App extends Component {
-    renderMovie() {
-        return <Movie/>;
+    constructor(props) {
+        super(props);
+        this.state = {movies: []};
     }
 
     componentDidMount() {
         fetch(moviesUrl)
-        .then(results => {return results.json})
-        .then(data => {alert(data)})
+        .then(results => {return results.json()})
+        .then(data => {
+            this.setState({ movies: data })
+        })
     }
 
     render() {
+        const movies = this.state.movies.map((item, i) => (
+            <Movie title={item.title} genre={item.genre}/>
+        ));
         return (
             <div className="App">
                 <header className="App-header">
@@ -37,10 +43,7 @@ class App extends Component {
                         <th>Title</th>
                         <th>Genre</th>
                     </tr>
-                    {this.renderMovie()}
-                    {this.renderMovie()}
-                    {this.renderMovie()}
-                    {this.renderMovie()}
+                    {movies}
                 </table>
             </div>
         );
