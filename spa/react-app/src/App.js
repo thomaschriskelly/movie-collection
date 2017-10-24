@@ -17,37 +17,34 @@ function Movie(props) {
 class App extends Component {
     constructor(props) {
         super(props);
-        this.state = {movies: []};
+        this.state = {movies: [], filtered: []};
     }
 
     componentDidMount() {
         fetch(moviesUrl)
         .then(results => {return results.json()})
         .then(data => {
-            this.setState({ movies: data })
+            this.setState({ movies: data, filtered: data})
         })
     }
 
     filterMovies() {
         const filter = document.getElementById('filter').value.toLowerCase();
         if(filter === ''){
+            this.setState({filtered: this.state.movies})
+        } else {
+            let filtered = []
             for (let movie of this.state.movies) {
-                movie.show = true;
+                if(movie.title.toLowerCase().includes(filter)){
+                    filtered.push(movie);
+                }
             }
+            this.setState({filtered: filtered})
         }
-        for (let movie of this.state.movies) {
-            if(movie.title.toLowerCase().includes(filter)){
-                movie.show = true;
-            } else {
-                movie.show = false;
-            }
-        }
-        this.forceUpdate();
     }
 
     render() {
-        const filteredMovies = this.state.movies.filter(movie => (movie.show !== false));
-        const movies = filteredMovies.map((movie, i) => (
+        const movies = this.state.filtered.map((movie, i) => (
             <Movie title={movie.title} genre={movie.genre} year={movie.year}/>
         ));
         return (
