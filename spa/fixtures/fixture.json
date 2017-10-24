@@ -1,2 +1,118 @@
 [
+{
+ "model": "spa.actor",
+ "pk": 1,
+ "fields": {
+  "name": "Tim Robbins"
+ }
+},
+{
+ "model": "spa.actor",
+ "pk": 2,
+ "fields": {
+  "name": "Morgan Freeman"
+ }
+},
+{
+ "model": "spa.actor",
+ "pk": 3,
+ "fields": {
+  "name": "Marlon Brandon"
+ }
+},
+{
+ "model": "spa.actor",
+ "pk": 4,
+ "fields": {
+  "name": "Al Pacino"
+ }
+},
+{
+ "model": "spa.actor",
+ "pk": 5,
+ "fields": {
+  "name": "Christian Bale"
+ }
+},
+{
+ "model": "spa.actor",
+ "pk": 6,
+ "fields": {
+  "name": "Heath Ledger"
+ }
+},
+{
+ "model": "spa.actor",
+ "pk": 7,
+ "fields": {
+  "name": "John Travolta"
+ }
+},
+{
+ "model": "spa.actor",
+ "pk": 8,
+ "fields": {
+  "name": "Samuel L Jackson"
+ }
+},
+{
+ "model": "spa.actor",
+ "pk": 9,
+ "fields": {
+  "name": "Uma Thurman"
+ }
+},
+{
+ "model": "spa.movie",
+ "pk": 1,
+ "fields": {
+  "title": "The Shawshank Redemption",
+  "genre": "Drama",
+  "year": 1994,
+  "actors": [
+   1,
+   2
+  ]
+ }
+},
+{
+ "model": "spa.movie",
+ "pk": 2,
+ "fields": {
+  "title": "The Godfather",
+  "genre": "Drama",
+  "year": 1972,
+  "actors": [
+   3,
+   4
+  ]
+ }
+},
+{
+ "model": "spa.movie",
+ "pk": 3,
+ "fields": {
+  "title": "The Dark Knight",
+  "genre": "Action",
+  "year": 2008,
+  "actors": [
+   5,
+   6
+  ]
+ }
+},
+{
+ "model": "spa.movie",
+ "pk": 4,
+ "fields": {
+  "title": "Pulp Fiction",
+  "genre": "Drama",
+  "year": 1994,
+  "actors": [
+   7,
+   8,
+   9
+  ]
+ }
+}
 ]
