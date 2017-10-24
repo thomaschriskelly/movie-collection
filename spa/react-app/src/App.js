@@ -19,6 +19,12 @@ class App extends Component {
         return <Movie/>;
     }
 
+    componentDidMount() {
+        fetch(moviesUrl)
+        .then(results => {return results.json})
+        .then(data => {alert(data)})
+    }
+
     render() {
         return (
             <div className="App">
