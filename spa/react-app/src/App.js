@@ -10,6 +10,7 @@ function Movie(props) {
         <tr>
             <td>{props.title}</td>
             <td>{props.genre}</td>
+            <td>{props.year}</td>
         </tr>
     )
 }
@@ -30,18 +31,19 @@ class App extends Component {
 
     render() {
         const movies = this.state.movies.map((item, i) => (
-            <Movie title={item.title} genre={item.genre}/>
+            <Movie title={item.title} genre={item.genre} year={item.year}/>
         ));
         return (
             <div className="App">
                 <header className="App-header">
-                    <h1 className="App-title">Movie Tracker</h1>
+                    <h1 className="App-title">Movie Catalogue</h1>
                 </header>
                 <br/>
                 <table>
                     <tr>
                         <th>Title</th>
                         <th>Genre</th>
+                        <th>Year</th>
                     </tr>
                     {movies}
                 </table>

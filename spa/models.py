@@ -10,6 +10,7 @@ class Actor(models.Model):
 class Movie(models.Model):
     title = models.CharField(max_length=200)
     genre = models.CharField(max_length=200)
+    year = models.PositiveSmallIntegerField(blank=True, null=True)
     actors = models.ManyToManyField(Actor)
 
     def __str__(self):
@@ -23,4 +24,4 @@ class ActorSerializer(serializers.HyperlinkedModelSerializer):
 class MovieSerializer(serializers.HyperlinkedModelSerializer):
     class Meta:
         model = Movie
-        fields = 'title', 'genre', 'actors'
+        fields = 'title', 'genre', 'year', 'actors'
