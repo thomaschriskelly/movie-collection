@@ -13,5 +13,5 @@ class MovieViewSet(viewsets.ModelViewSet):
     '''
     API endpoint to view/delete Movies
     '''
-    queryset = models.Movie.objects.all()
+    queryset = models.Movie.objects.all().order_by('title')
     serializer_class = models.MovieSerializer

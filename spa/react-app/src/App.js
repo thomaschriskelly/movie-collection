@@ -55,7 +55,7 @@ class App extends Component {
     submitNewMovie(){
         let form = new FormData(document.getElementById('addMovieForm'));
         let movies = this.state.movies;
-        movies.push({title: form.get('title'), genre: form.get('genre'), year: form.get('year')})
+        movies.push({title: form.get('title'), genre: form.get('genre'), year: form.get('year'), actors: []})
         fetch(moviesUrl, {method: "POST", body: form})
         this.setState({movies: movies})
         this.addMovieModalClose();
