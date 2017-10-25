@@ -114,5 +114,55 @@
    9
   ]
  }
+},
+{
+ "model": "spa.movie",
+ "pk": 5,
+ "fields": {
+  "title": "The Matrix",
+  "genre": "Action",
+  "year": 1999,
+  "actors": []
+ }
+},
+{
+ "model": "spa.movie",
+ "pk": 10,
+ "fields": {
+  "title": "Fight Club",
+  "genre": "Drama",
+  "year": 1999,
+  "actors": []
+ }
+},
+{
+ "model": "spa.movie",
+ "pk": 11,
+ "fields": {
+  "title": "Forrest Gump",
+  "genre": "Drama",
+  "year": 1994,
+  "actors": []
+ }
+},
+{
+ "model": "spa.movie",
+ "pk": 12,
+ "fields": {
+  "title": "Star Wars: Episode V - The Empire Strikes Back",
+  "genre": "Science Fiction",
+  "year": 1980,
+  "actors": []
+ }
+},
+{
+ "model": "spa.movie",
+ "pk": 13,
+ "fields": {
+  "title": "The Silence of the Lambs",
+  "genre": "Thriller",
+  "year": 1991,
+  "actors": []
+ }
 }
 ]
