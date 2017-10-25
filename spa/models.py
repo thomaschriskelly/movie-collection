@@ -24,4 +24,4 @@ class ActorSerializer(serializers.HyperlinkedModelSerializer):
 class MovieSerializer(serializers.HyperlinkedModelSerializer):
     class Meta:
         model = Movie
-        fields = 'title', 'genre', 'year', 'actors'
+        fields = 'title', 'genre', 'year',

@@ -52,6 +52,15 @@ class App extends Component {
         this.setState({addMovieModalOpen: false});
     }
 
+    submitNewMovie(){
+        let form = new FormData(document.getElementById('addMovieForm'));
+        let movies = this.state.movies;
+        movies.push({title: form.get('title'), genre: form.get('genre'), year: form.get('year')})
+        fetch(moviesUrl, {method: "POST", body: form})
+        this.setState({movies: movies})
+        this.addMovieModalClose();
+    }
+
     render() {
         const movies = this.state.filtered.map((movie, i) => (
             <Movie title={movie.title} genre={movie.genre} year={movie.year}/>
@@ -76,8 +85,14 @@ class App extends Component {
                 <button onClick={this.addMovieModalOpen.bind(this)}>Add Movie</button>
                 <Modal isOpen={this.state.addMovieModalOpen} onRequestClose={this.addMovieModalClose.bind(this)}>
                     <h1>Add Movie</h1>
-                    <input type='text'/>
-                    <input type='submit' value='Submit'/>
+                    <form id='addMovieForm'>
+                        <label>Title</label> <input name='title' type='text'/><br/>
+                        <label>Genre</label> <input name='genre' type='text'/><br/>
+                        <label>Year</label> <input name='year' type='text'/><br/>
+                    </form>
+                    <br/>
+                    <br/>
+                    <button onClick={this.submitNewMovie.bind(this)}>Submit</button>
                 </Modal>
             </div>
         );
